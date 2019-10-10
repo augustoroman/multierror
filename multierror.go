@@ -43,6 +43,8 @@ func (m *Accumulator) Pushf(fmtstr string, args ...interface{}) {
 func (m *Accumulator) Error() error {
 	if len(*m) == 0 {
 		return nil
+	} else if len(*m) == 1 {
+		return (*m)[0]
 	}
 	return _error(*m)
 }
