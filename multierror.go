@@ -1,4 +1,10 @@
 // Package multierror defines an error Accumulator to contain multiple errors.
+//
+// Use Uber's Multierr
+//
+// It has a cleaner and more consistent design than this package:
+// https://godoc.org/go.uber.org/multierr
+//
 package multierror
 
 import (
@@ -43,6 +49,8 @@ func (m *Accumulator) Pushf(fmtstr string, args ...interface{}) {
 func (m *Accumulator) Error() error {
 	if len(*m) == 0 {
 		return nil
+	} else if len(*m) == 1 {
+		return (*m)[0]
 	}
 	return _error(*m)
 }
