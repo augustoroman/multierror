@@ -1,4 +1,10 @@
 // Package multierror defines an error Accumulator to contain multiple errors.
+//
+// Use Uber's Multierr
+//
+// It has a cleaner and more consistent design than this package:
+// https://godoc.org/go.uber.org/multierr
+//
 package multierror
 
 import (
